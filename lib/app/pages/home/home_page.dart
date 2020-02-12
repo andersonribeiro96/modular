@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:loginmobx/app/pages/home/home_controller.dart';
 
@@ -16,19 +17,34 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('Home'),
       ),
-      body: Center(
-        child: TextField(
-          onChanged: (value) {
-            homeController.text = value;
-          },
-          decoration: InputDecoration(labelText: 'Um texto Qualquer'),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          //Navigator.pushNamed(context, '/other/${homeController.text}');
-          Modular.to.pushNamed('/other');
+      body: Observer(
+        builder: (_) {
+          if (homeController.pokemons.error != null) {
+            return Center(
+              child: RaisedButton(
+                child: Text('Press again'),
+                onPressed: (){
+                  homeController.fetchPokemons();
+                },
+              ),
+            );
+          }
+          if (homeController.pokemons.value == null) {
+            print('AQUI');
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          var list = homeController.pokemons.value;
+
+          return ListView.builder(
+            itemCount: list.length,
+            itemBuilder: (BuildContext context, int index) {
+              return ListTile(
+                title: Text(list[index].name),
+              );
+            },
+          );
         },
       ),
     );
