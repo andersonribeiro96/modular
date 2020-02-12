@@ -27,7 +27,8 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          Navigator.pushNamed(context, '/other/${homeController.text}');
+          //Navigator.pushNamed(context, '/other/${homeController.text}');
+          Modular.to.pushNamed('/other');
         },
       ),
     );
