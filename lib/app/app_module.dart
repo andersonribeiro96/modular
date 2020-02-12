@@ -18,7 +18,7 @@ class AppModule extends MainModule {
   @override
   List<Router> get routers => [
         Router('/', child: (_, args) => HomePage()),
-        Router('/other:text',
+        Router('/other/:text',
             child: (_, args) => Otherpage(
                   text: args.params['text'],
                 )),
