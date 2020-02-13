@@ -1,6 +1,6 @@
-import 'package:loginmobx/app/pages/shared/models/pokemo_model.dart';
-import 'package:loginmobx/app/pages/shared/respositories/poke_repository.dart';
+import 'package:loginmobx/app/modules/home/respositories/poke_repository.dart';
 import 'package:mobx/mobx.dart';
+import 'models/pokemo_model.dart';
 part 'home_controller.g.dart';
 
 class HomeController = _HomeControllerBase with _$HomeController;

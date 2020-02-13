@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:loginmobx/app/pages/home/home_controller.dart';
+import 'package:loginmobx/app/modules/home/home_controller.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
             return Center(
               child: RaisedButton(
                 child: Text('Press again'),
-                onPressed: (){
+                onPressed: () {
                   homeController.fetchPokemons();
                 },
               ),

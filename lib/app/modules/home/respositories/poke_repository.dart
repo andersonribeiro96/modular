@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:loginmobx/app/pages/shared/models/pokemo_model.dart';
+import 'package:loginmobx/app/modules/home/models/pokemo_model.dart';
+
+
 
 class PokeRepository {
   final Dio dio;
